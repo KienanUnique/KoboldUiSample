@@ -16,6 +16,7 @@ namespace MainMenuScreen.Installers
     public class MainMenuUiInstaller : ScriptableObjectInstaller
     {
         [SerializeField] private Canvas canvas;
+        [SerializeField] private UiAnimationDefaults animationDefaults;
         
         [Header("Windows")]
         [SerializeField] private MainMenuWindow mainMenuWindow;
@@ -28,7 +29,7 @@ namespace MainMenuScreen.Installers
             var canvasInstance = Instantiate(canvas);
             
             var ui = Container.BindKoboldUi(canvasInstance, WindowScope.Local,
-                animationDefaults: Container.Resolve<UiAnimationDefaults>());
+                animationDefaults: animationDefaults);
             ui.RegisterWindow(mainMenuWindow);
             ui.RegisterWindow(settingsWindow);
             ui.RegisterWindow(settingsChangeConfirmationWindow);

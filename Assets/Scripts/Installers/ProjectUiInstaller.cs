@@ -12,6 +12,7 @@ namespace Installers
     public class ProjectUiInstaller : ScriptableObjectInstaller
     {
         [SerializeField] private Canvas canvas;
+        [SerializeField] private UiAnimationDefaults animationDefaults;
         
         [Header("Windows")]
         [SerializeField] private LoadingWindow loadingWindow;
@@ -22,7 +23,7 @@ namespace Installers
             DontDestroyOnLoad(canvasInstance);
             
             var ui = Container.BindKoboldUi(canvasInstance, WindowScope.Project,
-                animationDefaults: Container.Resolve<UiAnimationDefaults>());
+                animationDefaults: animationDefaults);
             ui.RegisterWindow(loadingWindow, WindowScope.Project);
         }
     }

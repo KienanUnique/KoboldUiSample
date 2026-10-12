@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
-    "com.kienanunique.kobolduiframework": "https://github.com/KienanUnique/KoboldUiFramework.git#codex/di-independent-runtime",
+    "com.kienanunique.kobolduiframework": "https://github.com/KienanUnique/KoboldUiFramework.git#cdd5047ba2b823654fc5e893157df84d6e7b9e5e",
     "com.unity.collab-proxy": "2.11.3",
     "com.unity.feature.2d": "2.0.1",
     "com.unity.ide.rider": "3.0.36",
