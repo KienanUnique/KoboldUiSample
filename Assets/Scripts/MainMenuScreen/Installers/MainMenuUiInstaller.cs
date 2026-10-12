@@ -1,6 +1,5 @@
 ﻿using KoboldUi.Composition;
 using KoboldUi.Composition.Zenject;
-using KoboldUi.Element.Animations;
 using KoboldUi.Services.WindowsService;
 using MainMenuScreen.Ui.LevelSelector;
 using MainMenuScreen.Ui.MainMenu;
@@ -16,7 +15,6 @@ namespace MainMenuScreen.Installers
     public class MainMenuUiInstaller : ScriptableObjectInstaller
     {
         [SerializeField] private Canvas canvas;
-        [SerializeField] private UiAnimationDefaults animationDefaults;
         
         [Header("Windows")]
         [SerializeField] private MainMenuWindow mainMenuWindow;
@@ -28,12 +26,12 @@ namespace MainMenuScreen.Installers
         {
             var canvasInstance = Instantiate(canvas);
             
-            var ui = Container.BindKoboldUi(canvasInstance, WindowScope.Local,
-                animationDefaults: animationDefaults);
-            ui.RegisterWindow(mainMenuWindow);
-            ui.RegisterWindow(settingsWindow);
-            ui.RegisterWindow(settingsChangeConfirmationWindow);
-            ui.RegisterWindow(levelSelectorWindow);
+            Container.BindKoboldUi(canvasInstance, WindowScope.Local)
+                .RegisterWindow(mainMenuWindow)
+                .RegisterWindow(settingsWindow)
+                .RegisterWindow(settingsChangeConfirmationWindow)
+                .RegisterWindow(levelSelectorWindow)
+                .Build();
 
             Container.BindInterfacesTo<Bootstrap>().AsSingle().NonLazy(); // TODO: move this logic to other place
         }

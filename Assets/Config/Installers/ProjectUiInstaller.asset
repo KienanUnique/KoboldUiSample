@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: ProjectUiInstaller
   m_EditorClassIdentifier: 
   canvas: {fileID: 6088143201520821822, guid: 8b1b8feaf5c55c74ca92f62e04d3b87a, type: 3}
-  animationDefaults: {fileID: 11400000, guid: eda87e01e3b94db9a9ce0d984d34288a, type: 2}
   loadingWindow: {fileID: 7439459236722400659, guid: 98de444a0c44bfd4893a6ce7ec784773, type: 3}
