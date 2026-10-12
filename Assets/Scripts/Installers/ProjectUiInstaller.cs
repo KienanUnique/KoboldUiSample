@@ -1,4 +1,7 @@
-﻿using KoboldUi.Utils;
+﻿using KoboldUi.Composition;
+using KoboldUi.Composition.Zenject;
+using KoboldUi.Element.Animations;
+using KoboldUi.Services.WindowsService;
 using Ui.LoadingWindow;
 using UnityEngine;
 using Zenject;
@@ -18,7 +21,9 @@ namespace Installers
             var canvasInstance = Instantiate(canvas);
             DontDestroyOnLoad(canvasInstance);
             
-            Container.BindWindowFromPrefab(canvasInstance, loadingWindow);
+            var ui = Container.BindKoboldUi(canvasInstance, WindowScope.Project,
+                animationDefaults: Container.Resolve<UiAnimationDefaults>());
+            ui.RegisterWindow(loadingWindow, WindowScope.Project);
         }
     }
 }

@@ -8,11 +8,11 @@
       "hash": "73a63b7f672b88f7e9992f6917eb458a8cbb6fa9"
     },
     "com.kienanunique.kobolduiframework": {
-      "version": "https://github.com/KienanUnique/KoboldUiFramework.git",
+      "version": "https://github.com/KienanUnique/KoboldUiFramework.git#codex/di-independent-runtime",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "e1dde192f64ba2210beffce8d4e945a5431786cb"
+      "hash": "37ab106e13ff563c00ed62c3526c55aab883de38"
     },
     "com.unity.2d.animation": {
       "version": "9.2.0",

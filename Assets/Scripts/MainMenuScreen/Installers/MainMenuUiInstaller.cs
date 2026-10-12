@@ -1,4 +1,7 @@
-﻿using KoboldUi.Utils;
+﻿using KoboldUi.Composition;
+using KoboldUi.Composition.Zenject;
+using KoboldUi.Element.Animations;
+using KoboldUi.Services.WindowsService;
 using MainMenuScreen.Ui.LevelSelector;
 using MainMenuScreen.Ui.MainMenu;
 using MainMenuScreen.Ui.Settings;
@@ -24,10 +27,12 @@ namespace MainMenuScreen.Installers
         {
             var canvasInstance = Instantiate(canvas);
             
-            Container.BindWindowFromPrefab(canvasInstance, mainMenuWindow);
-            Container.BindWindowFromPrefab(canvasInstance, settingsWindow);
-            Container.BindWindowFromPrefab(canvasInstance, settingsChangeConfirmationWindow);
-            Container.BindWindowFromPrefab(canvasInstance, levelSelectorWindow);
+            var ui = Container.BindKoboldUi(canvasInstance, WindowScope.Local,
+                animationDefaults: Container.Resolve<UiAnimationDefaults>());
+            ui.RegisterWindow(mainMenuWindow);
+            ui.RegisterWindow(settingsWindow);
+            ui.RegisterWindow(settingsChangeConfirmationWindow);
+            ui.RegisterWindow(levelSelectorWindow);
 
             Container.BindInterfacesTo<Bootstrap>().AsSingle().NonLazy(); // TODO: move this logic to other place
         }
