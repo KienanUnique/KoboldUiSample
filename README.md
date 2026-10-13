@@ -5,6 +5,8 @@ Use it as a reference for integration, window structure, and common UI flows.
 
 Main repository: https://github.com/KienanUnique/KoboldUiFramework
 
+`Packages/manifest.json` pins KoboldUi to `release-2.0.0`.
+
 Animation defaults are configured without DI. `ProjectUiAnimationDefaults` holds
 the shared Fade, Scale, and Slide parameters. `MainMenuUiAnimationDefaults`
 references it and can override individual parameter types for the local UI.
